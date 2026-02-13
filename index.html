@@ -3,41 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title style="font-family: 'Great Vibes', cursive; font-size: 28px;">Be My Valentine?</title>
-    <!-- CDN Link -->
+    <title>Be My Valentine?</title>
+
+    <!-- CDN Link for confetti -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/canvas-confetti/1.6.0/confetti.browser.min.js"></script>
+    
     <!-- Custom Css -->
     <link rel="stylesheet" href="css/style.css"> 
+    
     <!-- Icon -->
-    <link rel="Icon" href="images/teddy-bear.png" type="images/png">
+    <link rel="icon" href="images/teddy-bear.png" type="image/png">
+    
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display&display=swap" rel="stylesheet">
+    
+    <!-- Bitcount Grid Double Font -->
     <style>
+    @font-face {
+      font-family: 'Bitcount Grid Double';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('https://fonts.gstatic.com/s/bitcountgriddouble/v1/WBK7rFjbakJVFOargiWSKQysDITG_S0VtG0x3HD2FYHVdlZI-rLlahmEAPp8wjYMvkPq48MVQo5RQf2svjnxa5Anx8-Y-pHdkVb0ByRHaxzbXaLbA9wfZDxkeZEXi_Ul10k.ttf') format('truetype');
+    }
+
     body {
         font-family: 'Playfair Display', serif;
+        background-color: #ffe6f0; /* optional soft Valentine pink */
+        margin: 0;
+        padding: 0;
     }
-    
-    h1, .final-message p {
-        font-family: 'Great Vibes', cursive;
+
+    h1, .final-message p, .title-pixel {
+        font-family: 'Bitcount Grid Double', sans-serif;
         font-size: 32px;
+        color: #ff4b6e;
+        text-align: center;
     }
-    
+
+    p {
+        font-family: 'Great Vibes', cursive;
+        font-size: 24px;
+        text-align: center;
+    }
+
     .whatsapp-btn {
         font-family: 'Playfair Display', serif;
         font-size: 18px;
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        background-color: #ff4b6e;
+        color: white;
+        text-decoration: none;
+        border-radius: 10px;
     }
     </style>
-
 </head>
+
 <body>
-    <audio autoplay loop>
-    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_4c0c2d6c87.mp3?filename=romantic-love-ambient-11086.mp3" type="audio/mpeg">
-    </audio>
     <div class="hearts"></div>
     <div class="container">
         <!-- Step 1 -->
         <div class="step active" id="step1">
             <img src="images/step2.gif" alt="Cute Bear" class="bear-img">
-            <h1 style="font-family: 'Great Vibes', cursive; font-size: 28px;">Sitit Nur Aishah,Would You Be My Valentine? 💝</h1>
+            <h1 class="title-pixel">Siti Nur Aishah, Would You Be My Valentine? 💝</h1>
             <div class="buttons">
                 <button class="btn btn-yes" onclick="goToStep2()">Yes</button>
                 <button class="btn btn-no" onmouseover="moveButton(this)" onclick="moveButton(this)">No</button>
@@ -47,7 +77,7 @@
         <!-- Step 2 -->
         <div class="step" id="step2">
             <img src="images/dudu-twisting-dance.gif" alt="Cute Bear with Hearts" class="bear-img">
-            <h1 style="font-family: 'Great Vibes', cursive; font-size: 28px;">Are You Sure You Want To Be My Valentine? 💕</h1>
+            <h1 class="title-pixel">Are You Sure You Want To Be My Valentine? 💕</h1>
             <div class="buttons">
                 <button class="btn btn-yes" onclick="goToStep3()">Yes, 100% Sure</button>
                 <button class="btn btn-no" onmouseover="moveButton(this)" onclick="moveButton(this)">Let me think...</button>
@@ -57,7 +87,7 @@
         <!-- Step 3 -->
         <div class="step" id="step3">
             <img src="images/step22.gif" alt="Cute Bear in Love" class="bear-img">
-            <h1>Promise Me Sayangg, You'll Always Be My Valentine ❤️❤️❤️</h1>
+            <h1 class="title-pixel">Promise Me Sayangg, You'll Always Be My Valentine ❤️❤️❤️</h1>
             <div class="buttons">
                 <button class="btn btn-yes" onclick="finalStep()">Yes, I Promise</button>
             </div>
@@ -66,46 +96,47 @@
         <!-- Final Message -->
         <div class="final-message">
             <img src="images/stafford-matt-unscreen.gif" alt="Cute Bear in Love" class="bear-img">
-            <p style="font-family: 'Great Vibes', cursive; font-size: 28px;">
-                Yayyy, You Have Made This Valentine So Special And Meaningful For Me. I Love You More Than Words Can Ever Express!🥰🥰🥰</p>
-            <p style="margin-top: 15px;">Click The Button Below And Send Me A Message, I’ll Be Waiting For You With All My Love! 💌</p>
+            <p>Yayyy, You Have Made This Valentine So Special And Meaningful For Me. I Love You More Than Words Can Ever Express! 🥰🥰🥰</p>
+            <p>Click The Button Below And Send Me A Message, I’ll Be Waiting For You With All My Love! 💌</p>
         </div>
-        
-        <a href="https://wa.me/+601119237539?text=Heyyy%20MyLovee,%20Its%20Me,%20Your%20Valentine%20❤️" class="whatsapp-btn" target="_blank">
+
+        <a href="https://wa.me/601119237539?text=Heyyy%20MyLovee,%20Its%20Me,%20Your%20Valentine%20❤️" class="whatsapp-btn" target="_blank">
             Chat Me Here 💌
         </a>        
     </div>
 
     <!-- Script JS -->
     <script src="js/script.js"></script>
+
+    <!-- Floating Hearts Animation -->
     <script>
-function createHeart() {
-    const heart = document.createElement("div");
-    heart.innerHTML = "❤️";
-    heart.style.position = "fixed";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.top = "-10px";
-    heart.style.fontSize = Math.random() * 20 + 15 + "px";
-    heart.style.animation = "fall 5s linear";
-    document.body.appendChild(heart);
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.innerHTML = "❤️";
+        heart.style.position = "fixed";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.top = "-10px";
+        heart.style.fontSize = Math.random() * 20 + 15 + "px";
+        heart.style.animation = "fall 5s linear";
+        document.body.appendChild(heart);
 
-    setTimeout(() => {
-        heart.remove();
-    }, 5000);
-}
-
-setInterval(createHeart, 500);
-
-const style = document.createElement('style');
-style.innerHTML = `
-@keyframes fall {
-    to {
-        transform: translateY(100vh);
-        opacity: 0;
+        setTimeout(() => {
+            heart.remove();
+        }, 5000);
     }
-}`;
-document.head.appendChild(style);
-</script>
+
+    setInterval(createHeart, 500);
+
+    const style = document.createElement('style');
+    style.innerHTML = `
+    @keyframes fall {
+        to {
+            transform: translateY(100vh);
+            opacity: 0;
+        }
+    }`;
+    document.head.appendChild(style);
+    </script>
 
 </body>
 </html>
